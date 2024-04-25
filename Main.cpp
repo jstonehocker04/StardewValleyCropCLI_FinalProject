@@ -22,4 +22,5 @@ int main() {
 			std::cout << line << '\n';
 		input_file.close();
 	}
+
 }
