@@ -27,4 +27,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\Downloads\TestCropInfo.csv">
+      <Filter>Source Files</Filter>
+    </None>
+  </ItemGroup>
 </Project>
