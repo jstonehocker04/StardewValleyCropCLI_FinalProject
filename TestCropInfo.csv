@@ -1,0 +1,41 @@
+﻿Blue Jazz,Spring,n,30,37,,7,n,,,50
+Carrot,Spring,n,,,,3,n,,,35
+Cauliflower,Spring,n,80,100,,12,n,,,175
+Coffee Bean,Spring|Summer,n,,,,10,y,2,,15
+Garlic,Spring,n,40,,,4,n,,,60
+Green Bean,Spring,n,60,75,,10,y,3,,40
+Kale,Spring,n,70,87,,6,n,,,110
+Parsnips,Spring,n,20,62,,6,n,,,80
+Rhubarb,Spring,n,,,,13,n,,,220
+Strawberry,Spring,n,100,,,8,y,4,,120
+Tulip,Spring,n,20,25,,6,n,,,30
+Unmilled Rice,Spring,n,40,,,6,n,,,30
+Blueberry,Summer,n,80,,,13,y,4,,50
+Corn,Summer|Fall,n,150,187,,14,y,4,,50
+Hops,Summer,n,60,75,,11,y,1,,25
+Hot Pepper,Summer,n,40,50,,5,y,3,,40
+Melon,Summer,n,80,100,,12,n,,,250
+Poppy,Summer,n,100,125,,7,n,,,140
+Radish,Summer,n,40,50,,6,n,,,90
+Red Cabbage,Summer,n,100,,,9,n,,,260
+Starfruit,Summer,n,,,,13,n,,,750
+Summer Spanlge,Summer,n,50,62,,8,n,,,45
+Summer Squash,Summer,n,,,,6,n,,,45
+Sunflower,Summer|Fall,n,200,125,,8,n,,,80
+Tomato,Summer,n,50,62,,11,y,4,,60
+Wheat,Summer|Fall,n,10,12,,4,n,,,25
+Amaranth,Fall,n,70,87,,7,n,,,150
+Artichoke,Fall,n,30,,,8,n,,,160
+Beet,Fall,n,,,,6,n,,,100
+Bok Choy,Fall,n,50,62,,4,n,,,80
+Cranberries,Fall,n,240,300,,7,y,5,,75
+Eggplant,Fall,n,20,25,,5,y,5,,60
+Fairy Rose,Fall,n,200,250,,12,n,,,290
+Grape,Fall,n,60,75,,10,y,3,,80
+Pumpkin,Fall,n,100,125,,13,n,,,320
+Yam,Fall,n,60,75,,10,n,,,160
+Powdermelon,Winter,n,,,,7,n,,,60
+Ancient Fruit,Spring|Summer|Fall,y,,,,28,y,7,,500
+Pineapple,Summer,y,,,,14,y,7,,300
+Taro Root,Summer,y,,,,7,n,,,100
+Sweet Gem Berry,Fall,y,,,,24,n,,,3000

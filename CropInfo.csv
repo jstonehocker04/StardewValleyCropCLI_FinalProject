@@ -1,0 +1,45 @@
+﻿//Crop format - tab delimited with | sub-delimiter:,,,,,,,,,,,,,,,,,,,,
+"//Additional thing to keep in mind - GDP[Minimum Gold per Day = ((Max Harvests * Sell Price per Harvest) - Seed Price) / Growing Days]; Growing Days = Days to Maturity + ((Max Harvests - 1)) * Days to //Regrow; Max Harvests is normally 1, besides plants that can grew; Sell Price per Havest is same as Sell Price of normal-quality crop, besides for potatoes (1.25)",,,,,,,,,,,,,,,,,,,,
+"//Additional things to maybe add: Traveling Cart Price, Oasis Price, Year\Event unlocked, % per harvest, unirrigated and irrigated growth times, 2 season sell price, Giant crops (y/n), reclaim seeds",,,,,,,,,,,,,,,,,,,,
+//Crop Name,Seaon(s),Pierre's Price,JojaMart Price,Growth Time,Regrowth (y/n),Regrowth Time,Normal Sell Price,Silver Sell Price,Gold Sell Price,Iridium Sell Price,Normal Energy,Silver Energy,Gold Energy,Iridium Energy,Normal Health,Silver Health,Gold Health,Iridium Health,Used In,Loved Gift
+Blue Jazz,Spring,30,37,7,n,,50,62,75,100,45,63,81,117,20,28,36,52,Lucky Lunch,
+Carrot,Spring,,,3,n,,35,43,52,70,75,105,135,195,33,47,60,87,,
+Cauliflower,Spring,80,100,12,n,,175,218,262,350,75,105,135,195,33,47,60,87,"Cheese Cauliflower|Spring Crops Bundle|""Jodi's Request"" Quest",Maru
+Coffee Bean,Spring|Summer,,,10,y,2,15,18,22,30,,,,,,,,,Coffee,
+Garlic,Spring,40,,4,n,,60,75,90,120,20,28,36,52,9,12,16,23,Escargot|Fiddlehead Risotto|Oil of Garlic,
+Green Bean,Spring,60,75,10,y,3,40,50,60,80,25,35,45,65,11,15,20,29,Bean Hotpot|Spring Crops Bundle,
+Kale,Spring,70,87,6,n,,110,137,165,220,50,70,90,130,22,31,40,58,Salmon Dinner| Stir Fry,
+Parsnips,Spring,20,62,6,n,,80,100,120,160,25,35,45,65,11,15,20,29,Hashbrowns|Spring Crops Bundle,
+Rhubarb,Spring,,,13,n,,220,275,330,440,,,,,,,,,Rhubarb Pie,
+Strawberry,Spring,100,,8,y,4,120,150,180,240,50,70,90,130,22,31,40,58,,Demetrius|Maru
+Tulip,Spring,20,25,6,n,,30,37,45,60,45,63,81,117,20,28,36,52,,Evelyn
+Unmilled Rice,Spring,40,,6,n,,30,37,45,60,3,4,5,7,1,1,2,3,Rice,
+Blueberry,Summer,80,,13,y,4,50,62,75,100,25,35,45,65,11,15,20,29,Blueberry Tart|Fruit Salad|Summer Crops Bundle,
+Corn,Summer|Fall,150,187,14,y,4,50,62,75,100,25,35,45,65,11,15,20,29,Tartilla|Oil|Fall Crops Bundle|Quality Crops Bundle,
+Hops,Summer,60,75,11,y,1,25,31,37,50,45,63,81,117,20,28,36,52,Pale Ale,
+Hot Pepper,Summer,40,50,5,y,3,40,50,60,80,13,18,23,33,5,8,10,14,"Pepper Poppers|Spicy Eel|Tropical Curry|Summer Crops|""Knee Therapy"" Quest",Lewis|Shane
+Melon,Summer,80,100,12,n,,250,312,375,500,113,158,203,293,50,71,91,131,"Fruit Salad|Pink Cake| Summer Crops Bundle|Quality Crops Bundle|""Crop Research"" Quest",Penny
+Poppy,Summer,100,125,7,n,,140,175,210,280,45,63,81,117,20,28,36,52,Poppyseed Muffin|Chef's Bundle,Penny
+Radish,Summer,40,50,6,n,,90,112,135,180,45,63,81,117,20,28,36,52,Radish Salad|Red Plate,
+Red Cabbage,Summer,100,,9,n,,260,325,390,520,75,105,135,195,33,47,60,87,Coleslaw|Fish Taco| Red Plate| Dye Bundle,
+Starfruit,Summer,,,13,n,,750,937,1125,1500,125,175,225,325,56,78,101,146,"Junimo Hut|""A Soldier's Star| Quest",
+Summer Spanlge,Summer,50,62,8,n,,45,63,81,117,20,28,36,52,45,63,81,117,,Caroline
+Summer Squash,Summer,,,6,n,,45,56,67,90,63,88,113,163,28,39,50,73,,
+Sunflower,Summer|Fall,200,125,8,n,,80,100,120,160,45,63,81,117,20,28,36,52,Oil|Dye Bundle,Haley
+Tomato,Summer,50,62,11,y,4,60,75,90,120,20,28,36,52,9,12,16,23,Bruschetta|Eggplant Parmesan|Fish Stew|Pizza|Spaghetti|Vegetable Medley|Sumer Crops Bundle,
+Wheat,Summer|Fall,10,12,4,n,,25,31,37,50,,,,,,,,,Beer|Wheat Flour|Fodder Bundle,
+Amaranth,Fall,70,87,7,n,,150,187,225,300,50,70,90,130,22,31,40,58,"Salmon Dinner|""Cow's Delight"" Quest",
+Artichoke,Fall,30,,8,n,,160,200,240,320,30,42,54,78,13,18,24,35,Artichoke Dip|Super Meal,
+Beet,Fall,,,6,n,,100,125,150,200,30,42,54,78,13,18,24,35,"Vegetable Medley|Sugar|""The Mysterious Qi"" Quest",Evelyn
+Bok Choy,Fall,50,62,4,n,,80,100,120,160,25,35,45,65,11,15,20,29,Super Meal,
+Cranberries,Fall,240,300,7,y,5,75,93,112,150,38,53,68,98,17,23,30,44,Craberry Candy|Cranberry Sauce|Stuffing|Super Meal,
+Eggplant,Fall,20,25,5,y,5,60,75,90,120,20,28,36,52,9,12,16,23,Eggplant Parmesan| Survival Burger|Fall Crops Bundle,
+Fairy Rose,Fall,200,250,12,n,,290,362,435,580,45,63,81,117,20,28,36,52,Fairy Dust,Evelyn|Jas
+Grape,Fall,60,75,10,y,3,80,100,120,160,38,53,68,98,17,23,30,44,Summer Seeds|Summer Foraging Bundle,Vincent
+Pumpkin,Fall,100,125,13,n,,320,400,480,640,,,,,,,,,"Autumn's Bounty|Pumpkin Pie|Pumpkin Soup|Jack-O-Lantern|Fall Crops Bundle|Quality Crops Bundle| ""Carving Pumpkins"" Quest",Abigail|Krobus|Willy
+Yam,Fall,60,75,10,n,,160,200,240,320,45,63,81,117,20,28,36,52,Autumn's Bounty|Glazed Yams|Fall Crops Bundle,Linus
+Powdermelon,Winter,,,7,n,,60,75,90,120,63,88,113,163,28,39,50,73,,
+Ancient Fruit,Spring|Summer|Fall,,,28,y,7,500,687,825,1100,,,,,,,,,,
+Pineapple,Summer,,,14,y,7,300,375,450,600,138,193,248,358,62,86,111,161,Tropical Curry,
+Taro Root,Summer,,,7,n,,100,125,150,200,38,53,68,98,17,23,30,44,Poi,
+Sweet Gem Berry,Fall,,,24,n,,3000,3750,4500,6000,,,,,,,,,,
