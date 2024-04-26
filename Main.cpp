@@ -11,9 +11,14 @@
 #include <vector>
 #include <string>
 #include <fstream>
+#include "Crop.h"
 
 int main() {
+	// Store Data from CSV into vector
 	std::ifstream input_file;
+	std::vector<Crop> cropList = Crop::readCSV("TestCropInfo.csv");
+	
+
 	//	Print's ascii art title
 	input_file.open("Title.txt");
 	if (input_file) {
@@ -22,5 +27,4 @@ int main() {
 			std::cout << line << '\n';
 		input_file.close();
 	}
-
 }

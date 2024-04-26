@@ -1,25 +1,33 @@
 #pragma once
 #include <string>
+#include <vector>
 
 class Crop
 {
 private:
 	std::string crop_name;
 	std::string season;
-	int piere_price;
+	int pierre_price;
 	int growth_time;
 	bool regrowth;
 	int regrowth_time;
 	int normal_sell;
-
+	
 public:
 	//Constructor
-	Crop(const std::string& crop_name, const std::string& season, const int& piere_price, const int& growth_time, const bool& regrowth, const int& regrowth_time, const int& normal_sell);
+	Crop(const std::string& crop_name, const std::string& season, const int& pierre_price, const int& growth_time, const bool& regrowth, const int& regrowth_time, const int& normal_sell);
 
-	// Function to move data from csv into objects then into a vector
-
+	// Function to move data from csv into objects then into a vector 
+	static std::vector<Crop> readCSV(const std::string& filename);	//Have to keep the fucntion as static so that it can be used when called upon in Main.cpp
 
 	// Getter functions
-	std::string getGeneralInfo() const;
+	//std::string getCrop_Name() const;
+	//std::string getSeason() const;
+	//int getPierre_Price() const;
+	//int getGrowth_Time() const;
+	//bool getRegrowth() const;
+	//int getRegrwoth_Time() const;
+	//int getNormal_Sell() const;
+	//void getVehicleInfo() const;
 };
 
