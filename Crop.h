@@ -15,10 +15,7 @@ private:
 	
 public:
 	//Constructor
-	Crop(const std::string& crop_name, const std::string& season, const int& pierre_price, const int& growth_time, const bool& regrowth, const int& regrowth_time, const int& normal_sell);
-
-	// Function to move data from csv into objects then into a vector 
-	static std::vector<Crop> readCSV(const std::string& filename);	//Have to keep the fucntion as static so that it can be used when called upon in Main.cpp
+	Crop(const std::string crop_name, const std::string season, const int pierre_price, const int growth_time, const bool regrowth, const int regrowth_time, const int normal_sell);
 
 	// Getter functions
 	//std::string getCrop_Name() const;
