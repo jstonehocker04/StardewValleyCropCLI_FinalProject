@@ -8,3 +8,6 @@ Crop::Crop(const std::string crop_name, const std::string season, const int pier
 	crop_name(crop_name), season(season), pierre_price(pierre_price), growth_time(growth_time), regrowth(regrowth), regrowth_time(regrowth_time), normal_sell(normal_sell) {}
 
 // Getters and setters implementations
+//std::string getCrop_Name() const {
+//
+//}

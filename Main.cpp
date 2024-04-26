@@ -45,6 +45,8 @@ std::vector<Crop> readCSV(const std::string& filename) {
 			cropList.push_back({ crop_name, season, pierre_price, growth_time, regrowth, regrowth_time, normal_sell });
 		}
 	}
+	// Prints to confirm action is done
+	std::cout << "CSV converted to vector\n";
 
 	return cropList;
 }
@@ -57,4 +59,5 @@ void printTitle() {
 		while (getline(file, line))
 			std::cout << line << '\n';
 	}
+	std::cout << "\n\n";
 }
