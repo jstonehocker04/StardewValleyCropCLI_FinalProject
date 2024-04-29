@@ -23,6 +23,11 @@ int main() {
 	std::vector<Crop> cropList = readCSV("TestCropInfo.csv");
 	
 	printTitle();
+
+	// Initialize variable to store Command Line Input and then store input into it to check
+	std::string input_line;
+	std::cin >> input_line;
+	
 }
 
 // Definig Declared Functions
