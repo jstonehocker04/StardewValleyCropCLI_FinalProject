@@ -13,55 +13,57 @@
 #include <sstream>
 #include "Crop.h"
 
-using std::vector, std::string, std::ifstream, std::istringstream;
 
 //	Declared Funcitons
-std::vector<Crop> readCSV(const std::string&);
+std::vector<Crop> readtestCSV(const std::string&);
 void printTitle();
 
+
+
 int main() {
-	// Store Data from CSV into vector
-	vector<Crop> cropList = readCSV("TestCropInfo.csv");
+	std::vector<Crop> cropList = readtestCSV("TestCropInfo.csv");
 	
 	printTitle();
 
 	
-
 	// Initialize variable to store Command Line Input and then store input into it to check
-	std::cout << std::to_string(cropList[1]);
-}
+	for (const auto& crop : cropList) {
+		crop.getGeneralInfo();
+	}
 
-// Definig Declared Functions
-vector<Crop> readCSV(const std::string& filename) {
-	vector<Crop> cropList;
-	ifstream file(filename);
-	string line;
+	return 0;
+}	// main()
+
+
+
+// Defining Declared Functions
+std::vector<Crop> readCSV(const std::string& filename) {
+	std::vector<Crop> cropList;
+	std::ifstream file(filename);
+	std::string line;
 
 	while (getline(file, line)) {
-		istringstream iss(line);
-		string crop_name;
-		string season;
+		std::istringstream iss(line);
+		std::string crop_name;
+		std::string season;
+		double gdp;
 		int pierre_price;
 		int growth_time;
-		bool regrowth;
-		int regrowth_time;
-		int normal_sell;
 		// Read data from each line
-		if (std::getline(iss, crop_name, ',') && iss >> season, iss >> pierre_price, iss >> growth_time, iss >> regrowth, iss >> regrowth_time, iss >> normal_sell) {
-			cropList.push_back({ crop_name, season, pierre_price, growth_time, regrowth, regrowth_time, normal_sell });
+		if (getline(iss, crop_name, ',') && iss >> season, iss >> gdp, iss >> pierre_price, iss >> growth_time) {
+			cropList.push_back({ crop_name, season, gdp, pierre_price, growth_time });
 		}
 	}
-	// Prints to confirm action is done
-	std::cout << "CSV converted to vector\n";
+	//// Prints to confirm action is done
+	//std::cout << "CSV converted to vector\n";
 
 	return cropList;
 }
 
-
 void printTitle() {
-	ifstream file("Title.txt");
+	std::ifstream file("Title.txt");
 	if (file) {
-		string line;
+		std::string line;
 		while (getline(file, line))
 			std::cout << line << '\n';
 	}
