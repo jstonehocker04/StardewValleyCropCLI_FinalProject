@@ -26,7 +26,7 @@ public:
 	bool getRegrowth() const;
 	int getRegrwoth_Time() const;
 	int getNormal_Sell() const;
-	int getGDP(string crop_name, int sell_price, int seed_price, int growing_days);
+	int getGDP();
 	string getGeneralInfo() const;
 };
 

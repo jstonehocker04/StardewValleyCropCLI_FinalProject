@@ -1,6 +1,7 @@
+#include <cmath>
 #include "Crop.h"
 
-using std::string, std::to_string, std::iostream;
+using std::string, std::to_string, std::floor;
 
 // Constructor implementation
 Crop::Crop(const string& crop_name, const string& season, const int& pierre_price, const int& growth_time, const bool& regrowth, const int& regrowth_time, const int& normal_sell) :
@@ -14,9 +15,7 @@ int Crop::getGrowth_Time() const { return growth_time; }
 bool Crop::getRegrowth() const { return regrowth; }
 int Crop::getRegrwoth_Time() const { return regrowth_time; }
 int Crop::getNormal_Sell() const { return normal_sell; }
-int Crop::getGDP(string crop_name, int sell_price, int seed_price, int growing_days) {
-	int GDP = ();
-}
+int
 string Crop::getGeneralInfo() const {
 	string msg = "Crop Name:\t" + crop_name + '\n'
 		+ "Season:\t" + season + '\n'

@@ -28,9 +28,7 @@ int main() {
 	
 
 	// Initialize variable to store Command Line Input and then store input into it to check
-	string input_line;
-	std::cin >> input_line;
-	
+	std::cout << std::to_string(cropList[1]);
 }
 
 // Definig Declared Functions
