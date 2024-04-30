@@ -9,10 +9,11 @@
 
 #include <iostream>
 #include <vector>
-#include <string>
 #include <fstream>
 #include <sstream>
 #include "Crop.h"
+
+using std::vector, std::string, std::ifstream, std::istringstream;
 
 //	Declared Funcitons
 std::vector<Crop> readCSV(const std::string&);
@@ -20,26 +21,28 @@ void printTitle();
 
 int main() {
 	// Store Data from CSV into vector
-	std::vector<Crop> cropList = readCSV("TestCropInfo.csv");
+	vector<Crop> cropList = readCSV("TestCropInfo.csv");
 	
 	printTitle();
 
+	
+
 	// Initialize variable to store Command Line Input and then store input into it to check
-	std::string input_line;
+	string input_line;
 	std::cin >> input_line;
 	
 }
 
 // Definig Declared Functions
-std::vector<Crop> readCSV(const std::string& filename) {
-	std::vector<Crop> cropList;
-	std::ifstream file(filename);
-	std::string line;
+vector<Crop> readCSV(const std::string& filename) {
+	vector<Crop> cropList;
+	ifstream file(filename);
+	string line;
 
-	while (std::getline(file, line)) {
-		std::istringstream iss(line);
-		std::string crop_name;
-		std::string season;
+	while (getline(file, line)) {
+		istringstream iss(line);
+		string crop_name;
+		string season;
 		int pierre_price;
 		int growth_time;
 		bool regrowth;
@@ -58,9 +61,9 @@ std::vector<Crop> readCSV(const std::string& filename) {
 
 
 void printTitle() {
-	std::ifstream file("Title.txt");
+	ifstream file("Title.txt");
 	if (file) {
-		std::string line;
+		string line;
 		while (getline(file, line))
 			std::cout << line << '\n';
 	}

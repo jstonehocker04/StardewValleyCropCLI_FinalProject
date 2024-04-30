@@ -1,11 +1,13 @@
 #pragma once
 #include <string>
 
+using std::string;
+
 class Crop
 {
 private:
-	std::string crop_name;
-	std::string season;
+	string crop_name;
+	string season;
 	int pierre_price;
 	int growth_time;
 	bool regrowth;
@@ -13,17 +15,18 @@ private:
 	int normal_sell;
 	
 public:
-	//Constructor
-	Crop(const std::string& crop_name, const std::string& season, const int& pierre_price, const int& growth_time, const bool& regrowth, const int& regrowth_time, const int& normal_sell);
+	// Default Constructor
+	Crop(const string& crop_name, const string& season, const int& pierre_price, const int& growth_time, const bool& regrowth, const int& regrowth_time, const int& normal_sell);
 
 	// Getter functions
-	std::string getCrop_Name() const;
-	std::string getSeason() const;
+	string getCrop_Name() const;
+	string getSeason() const;
 	int getPierre_Price() const;
 	int getGrowth_Time() const;
 	bool getRegrowth() const;
 	int getRegrwoth_Time() const;
 	int getNormal_Sell() const;
-	void getGeneralInfo() const;
+	int getGDP(string crop_name, int sell_price, int seed_price, int growing_days);
+	string getGeneralInfo() const;
 };
 
