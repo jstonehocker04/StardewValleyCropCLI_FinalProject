@@ -14,10 +14,14 @@
 #include "Crop.h"
 
 using std::string;
+using std::vector;
+using std::cout;
+using std::cin;
 
 
 //	Declared Funcitons
 void printTitle();
+vector<string> SplitDelimitedString(string);
 
 
 
@@ -75,22 +79,26 @@ int main() {
 	bool keep_going = true;
 	string input_line;
 	while (keep_going == true) {
-		std::cin >> input_line;
+		cin >> input_line;
 		//Split input_line into sections
 		// Checks to see if the necessary characters - and | are in the command
-			// Command Template
-			// get-[CROPNAME]|[OBJECTTRAIT] ex: get-Yam|PierrePrice
-		if (input_line.find('-') != std::string::npos && input_line.find('|') != std::string::npos) {
-
+			// Command Template: get-[CROPNAME]|[OBJECTTRAIT] ex: get-Yam|PierrePrice
+		if (input_line.find('-') != string::npos && input_line.find('|') != string::npos) {
+			//Seperate input_line into a vector
+			std::vector<string> inputLineSplit = SplitDelimitedString(input_line);
+			
+			//Checks first element of inputLineSplit is a get or set
+			if (inputLineSplit[0] == "get") {
+				// 
+			}
 		}
-		else
-			std::cout << "Command not recongized. Please enter a command inside databank. Enter '/help' to view commands.";
+		else	cout << "Command not recongized. Please enter a command inside databank. Enter '/help' to view commands." << std::endl;
 
-		if (input_line == "exit") {
+		if (input_line == "/exit") {
 			keep_going = false;
 		}
 		else if (input_line == "/help") {
-			
+			// Fill out with all possible commands
 		}
 	}	//while (keeping_going == true)
 
@@ -110,4 +118,21 @@ void printTitle() {
 			std::cout << line << '\n';
 	}
 	std::cout << "\n\n";
+}
+
+vector<string> SplitDelimitedString(string str) {
+	vector<string> stringList;
+	string delimiters = "-|";
+	// finds the range of characters in the string that's before - or |
+	size_t start = 0, end = str.find_first_of(delimiters);
+	while (end != string::npos) {
+		// Stores the range of characters in the string by removing any characters after and including - or |
+		stringList.push_back(str.substr(start, end - start));
+		start = end + 1;
+		end = str.find_first_of(delimiters, start);
+	}
+	stringList.push_back(str.substr(start));
+	cout << stringList.size();
+
+	return stringList;
 }
