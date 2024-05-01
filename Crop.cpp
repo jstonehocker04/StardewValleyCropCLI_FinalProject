@@ -26,9 +26,9 @@ std::string Crop::getSeason() const { return season; }
 double Crop::getGDP() const { return gdp; }
 int Crop::getPierre_Price() const { return pierre_price; }
 int Crop::getGrowth_Time() const { return growth_time; }
-//bool Crop::getRegrowth() const { return regrowth; }
-//int Crop::getRegrwoth_Time() const { return regrowth_time; }
-//int Crop::getNormal_Sell() const { return normal_sell; }
+bool Crop::getRegrowth() const { return regrowth_time >= 0 ? false : true; }
+int Crop::getRegrwoth_Time() const { return regrowth_time; }
+int Crop::getNormal_Sell() const { return normal_sell; }
 void Crop::getGeneralInfo() const {
 	std::cout << "Crop Name:\t" + getCrop_Name() + '\n'
 		+ "Season:\t" + getSeason() + '\n'

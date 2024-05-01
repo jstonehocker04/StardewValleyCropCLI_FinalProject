@@ -26,8 +26,8 @@ int main() {
 	Crop BlueJazz = Crop::Crop("Blue Jazz", "Spring", 2.86, 30, 37, 7, 0, 50, 62, 75, 100, 45, 63, 81, 117, 20, 28, 36, 52, "Lucky Lunch", "");
 	Crop Carrot = Crop::Crop("Carrot", "Spring", 11.6, 0, 0, 3, 0, 35, 43, 52, 70, 75, 105, 135, 195, 33, 47, 60, 87, "", "");
 	Crop Califlower = Crop::Crop("Cauliflower", "Spring", 7.92, 80, 100, 12, 0, 175, 218, 262, 350, 75, 105, 135, 195, 33, 47, 60, 87, "Cheese Cauliflower|Spring Crops Bundle|\"Jodi's Request\" Quest", "Maru");
-	Crop CoffeeBean = Crop::Crop("Coffee Bean", "Spring|Summer", 25.56, 0, 0, 10, 2, 15, 18, 22, 30, 0, 0, 0, 0, 0, 0, 0, 0, "Coffee", "");
-	Crop Garlic = Crop::Crop("Garlic", "Spring", 5, 40, 0, 4, 0, 60, 75, 90, 120, 20, 28, 36, 52, 9, 12, 16, 23, "Escargot|Fiddlehead Risotto|Oil of Garlic", "");
+	Crop CoffeeBean = Crop::Crop("Coffee Bean", "Spring,Summer", 25.56, 0, 0, 10, 2, 15, 18, 22, 30, 0, 0, 0, 0, 0, 0, 0, 0, "Coffee", "");
+	Crop Garlic = Crop::Crop("Garlic", "Spring", 5, 40, 0, 4, 0, 60, 75, 90, 120, 20, 28, 36, 52, 9, 12, 16, 23, "Escargot|Fiddlehead Risotto,Oil of Garlic", "");
 	Crop GreenBean = Crop::Crop("Green Bean", "Spring", 7.2, 60, 75, 10, 3, 40, 50, 60, 80, 25, 35, 45, 65, 11, 15, 20, 29, "Bean Hotpot|Spring Crops Bundle", "");
 	Crop Kale = Crop::Crop("Kale", "Spring", 6.67, 70, 87, 6, 0, 110, 137, 165, 220, 50, 70, 90, 130, 22, 31, 40, 58, "Salmon Dinner|Stir Fry", "");
 	Crop Parsnips = Crop::Crop("Parsnips", "Spring", 3.75, 20, 62, 6, 0, 80, 100, 120, 160, 25, 35, 45, 65, 11, 15, 20, 29, "Hashbrowns|Spring Crops Bundle", "");
@@ -36,7 +36,7 @@ int main() {
 	Crop Tulip = Crop::Crop("Tulip", "Spring", 20.83, 20, 25, 6, 0, 30, 37, 45, 60, 45, 63, 81, 117, 20, 28, 36, 52, "", "Evelyn");
 	Crop UnmilledRice = Crop::Crop("Unmilled Rice", "Spring", -1.67, 40, 0, 6, 0, 30, 37, 45, 60, 3, 4, 5, 7, 1, 1, 2, 3, "Rice", "");
 	Crop Blueberry = Crop::Crop("Blueberry", "Summer", 20.8, 80, 0, 13, 4, 50, 62, 75, 100, 25, 35, 45, 65, 11, 15, 20, 29, "Blueberry Tart|Fruit Salad|Summer Crops Bundle", "");
-	Crop Corn = Crop::Crop("Corn", "Summer|Fall", 7.41, 150, 187, 14, 4, 50, 62, 75, 100, 25, 35, 45, 65, 11, 15, 20, 29, "Tartilla | Oil | Fall Crops Bundle | Quality Crops Bundle", "");
+	Crop Corn = Crop::Crop("Corn", "Summer|Fall", 7.41, 150, 187, 14, 4, 50, 62, 75, 100, 25, 35, 45, 65, 11, 15, 20, 29, "Tartilla|Oil Fall Crops Bundle|Quality Crops Bundle", "");
 	Crop Hops = Crop::Crop("Hops", "Summer", 13.52, 60, 75, 11, 1, 25, 31, 37, 50, 45, 63, 81, 117, 20, 28, 36, 52, "Pale Ale", "");
 	Crop HotPepper = Crop::Crop("Hot Pepper", "Summer", 10.77, 40, 50, 5, 3, 40, 50, 60, 80, 13, 18, 23, 33, 5, 8, 10, 14, "Pepper Poppers|Spicy Eel|Tropical Curry|Summer Crops|\"Knee Therapy\" Quest", "Lewis|Shane");
 	Crop Melon = Crop::Crop("Melon", "Summer", 14.17, 80, 100, 12, 0, 250, 312, 375, 500, 113, 158, 203, 293, 50, 71, 91, 131, "Fruit Salad|Pink Cake|Summer Crops Bundle|Quality Crops Bundle|\"Crop Research\" Quest", "Penny");
@@ -76,7 +76,23 @@ int main() {
 	string input_line;
 	while (keep_going == true) {
 		std::cin >> input_line;
-	}
+		//Split input_line into sections
+		// Checks to see if the necessary characters - and | are in the command
+			// Command Template
+			// get-[CROPNAME]|[OBJECTTRAIT] ex: get-Yam|PierrePrice
+		if (input_line.find('-') != std::string::npos && input_line.find('|') != std::string::npos) {
+
+		}
+		else
+			std::cout << "Command not recongized. Please enter a command inside databank. Enter '/help' to view commands.";
+
+		if (input_line == "exit") {
+			keep_going = false;
+		}
+		else if (input_line == "/help") {
+			
+		}
+	}	//while (keeping_going == true)
 
 
 
@@ -93,5 +109,5 @@ void printTitle() {
 		while (getline(file, line))
 			std::cout << line << '\n';
 	}
-	std::cout << "\n\n...";
+	std::cout << "\n\n";
 }
