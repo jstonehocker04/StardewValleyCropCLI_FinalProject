@@ -1,11 +1,13 @@
 #pragma once
 #include <string>
 
+using std::string;
+
 class Crop
 {
 private:
-	std::string crop_name;
-	std::string season;
+	string crop_name;
+	string season;
 	double gdp;
 	int pierre_price;
 	int joja_price;
@@ -23,30 +25,46 @@ private:
 	int silver_health;
 	int gold_health;
 	int iridium_health;
-	std::string used_in;
-	std::string loved_gift;
+	string used_in;
+	string loved_gift;
 	
 public:
 	// Empty Constructor
 	Crop();
 	// Default Constructor
-	Crop(const std::string& crop_name, const std::string& season, const double& gdp, const int& pierre_price, const int& growth_time);
+	Crop(const string& crop_name, const string& season, const double& gdp, const int& pierre_price, const int& growth_time);
 	// Full Constructor
-	Crop(const std::string& crop_name, const std::string& season, const double& gdp, const int& pierre_price, const int& joja_price, const int& growth_time, const int& regrowth_time,
+	Crop(const string& crop_name, const string& season, const double& gdp, const int& pierre_price, const int& joja_price, const int& growth_time, const int& regrowth_time,
 		const int& normal_sell, const int& silver_sell, const int& gold_sell, const int& iridium_sell, 
 		const int& normal_energy, const int& silver_energy, const int& gold_energy, const int& iridium_energy,
 		const int& normal_health, const int& silver_health, const int& gold_health, const int& iridium_health,
-		const std::string used_in, const std::string loved_gift);
+		const string used_in, const string loved_gift);
 
 	//Getter functions
-	std::string getCrop_Name() const;
-	std::string getSeason() const;
+	string getCrop_Name() const;
+	string getSeason() const;
 	double getGDP() const;
 	int getPierre_Price() const;
+	int getJoja_Price() const;
 	int getGrowth_Time() const;
 	bool getRegrowth() const;
 	int getRegrwoth_Time() const;
 	int getNormal_Sell() const;
-	void getGeneralInfo() const;
+	int getSilver_Sell() const;
+	int getGold_Sell() const;
+	int getIridium_Sell() const;
+	bool getEdible() const;
+	int getNormal_Energy() const;
+	int getSilver_Energy() const;
+	int getGold_Energy() const;
+	int getIridium_Energy() const;
+	int getNormal_Health() const;
+	int getSilver_Health() const;
+	int getGold_Health() const;
+	int getIridium_Health() const;
+	string getUsed_In() const;
+	string getLoved_Gift() const;
+	string getGeneralInfo() const;
+	string getAllInfo() const;
 };
 

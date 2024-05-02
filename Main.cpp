@@ -15,17 +15,19 @@
 
 using std::string;
 using std::vector;
+using std::to_string;
 using std::cout;
 using std::cin;
 
 
 //	Declared Funcitons
 void printTitle();
-vector<string> SplitDelimitedString(string);
+vector<string> splitDelimitedString(string);
+string 
 
 
 
-int main() {
+int Main() {
 	//Initialize Crop Objects then store in cropList vector
 	Crop BlueJazz = Crop::Crop("Blue Jazz", "Spring", 2.86, 30, 37, 7, 0, 50, 62, 75, 100, 45, 63, 81, 117, 20, 28, 36, 52, "Lucky Lunch", "");
 	Crop Carrot = Crop::Crop("Carrot", "Spring", 11.6, 0, 0, 3, 0, 35, 43, 52, 70, 75, 105, 135, 195, 33, 47, 60, 87, "", "");
@@ -73,33 +75,117 @@ int main() {
 		Amaranth, Artichoke, Beet, BokChoy, Broccolie, Cranberries, Eggplant, FairyRose, Grape, Pumpkin, Yam, Powdermelon, AncientFruit, SweetGem };
 
 
+
 	printTitle();
+
 
 	//Initialization and Defining for 
 	bool keep_going = true;
 	string input_line;
+
 	while (keep_going == true) {
 		cin >> input_line;
+
 		//Split input_line into sections
 		// Checks to see if the necessary characters - and | are in the command
 			// Command Template: get-[CROPNAME]|[OBJECTTRAIT] ex: get-Yam|PierrePrice
 		if (input_line.find('-') != string::npos && input_line.find('|') != string::npos) {
-			//Seperate input_line into a vector
-			std::vector<string> inputLineSplit = SplitDelimitedString(input_line);
+			// Seperate input_line into a vector
+			std::vector<string> inputLineSplit = splitDelimitedString(input_line);
+			Crop quiered_crop;
+			string quiered_message;
 			
 			//Checks first element of inputLineSplit is a get or set
 			if (inputLineSplit[0] == "get") {
-				// 
-			}
-		}
-		else	cout << "Command not recongized. Please enter a command inside databank. Enter '/help' to view commands." << std::endl;
+				// Search cropList's objects to see what crop_name matches the inputLineSplit[1]
+				for (const auto& crop : cropList) {
+					// Store object with matching crop name into quiered_crop
+					if (inputLineSplit[1] == crop.getCrop_Name()) {
+						quiered_crop = crop;
+					}
+				}
+				quiered_message += "Crop:\t" + quiered_crop.getCrop_Name() + '\n';
 
-		if (input_line == "/exit") {
+				// Search inputLineSplit for all quiered object elements
+				for (int i = 2; i <= inputLineSplit.size(); i++) {
+					if (inputLineSplit[i] == "Season") {
+						quiered_message += "Season:\t" + quiered_crop.getSeason() + '\n';
+					}
+					else if (inputLineSplit[i] == "GDP") {
+						quiered_message += "Gold Per Day:\t" + to_string(quiered_crop.getGDP()) + '\n';
+					}
+					else if (inputLineSplit[i] == "PierrePrice") {
+						quiered_message += "Pierre's Price:\t" + to_string(quiered_crop.getPierre_Price()) + '\n';
+					}
+					else if (inputLineSplit[i] == "JojaPrice") {
+						quiered_message += "Joja's Price:\t" + to_string(quiered_crop.getJoja_Price()) + '\n';
+					}
+					else if (inputLineSplit[i] == "GrowthTime") {
+						quiered_message += "Growth Time:\t" + to_string(quiered_crop.getGrowth_Time()) + '\n';
+					}
+					else if (inputLineSplit[i] == "Regrowth") {
+						quiered_message += "Regrowth:\t" + to_string(quiered_crop.getRegrowth()) + '\n';
+					}
+					else if (inputLineSplit[i] == "RegrowthTime") {
+						quiered_message += "Regrowth Time:\t" + to_string(quiered_crop.getRegrwoth_Time()) + '\n';
+					}
+					else if (inputLineSplit[i] == "NormalSell") {
+						quiered_message += "Normal Sell Price:\t" + to_string(quiered_crop.getNormal_Sell()) + '\n';
+					}
+					else if (inputLineSplit[i] == "SilverSell") {
+						quiered_message += "Silver Sell Price:\t" + to_string(quiered_crop.getSilver_Sell()) + '\n';
+					}
+					else if (inputLineSplit[i] == "GoldSell") {
+						quiered_message += "Gold Sell Price:\t" + to_string(quiered_crop.getGold_Sell()) + '\n';
+					}
+					else if (inputLineSplit[i] == "IridiumSell") {
+						quiered_message += "Iridium Sell Price:\t" + to_string(quiered_crop.getIridium_Sell()) + '\n';
+					}
+					else if (inputLineSplit[i] == "Edible") {
+						quiered_message += "Edible:\t" + to_string(quiered_crop.getEdible()) + '\n';
+					}
+					else if (inputLineSplit[i] == "NormalEnergy") {
+						quiered_message += "Normal Energy:\t" + to_string(quiered_crop.getNormal_Energy()) + '\n';
+					}
+					else if (inputLineSplit[i] == "SilverEnergy") {
+						quiered_message += "Silver Energy:\t" + to_string(quiered_crop.getSilver_Energy()) + '\n';
+					}
+					else if (inputLineSplit[i] == "GoldEnergy") {
+						quiered_message += "Gold Energy:\t" + to_string(quiered_crop.getGold_Energy()) + '\n';
+					}
+					else if (inputLineSplit[i] == "IridiumEnergy") {
+						quiered_message += "Iridium Energy:\t" + to_string(quiered_crop.getIridium_Energy()) + '\n';
+					}
+					else if (inputLineSplit[i] == "NormalHealth") {
+						quiered_message += "Normal Health:\t" + to_string(quiered_crop.getNormal_Health()) + '\n';
+					}
+					else if (inputLineSplit[i] == "SilverHealth") {
+						quiered_message += "Silver Health:\t" + to_string(quiered_crop.getSilver_Energy()) + '\n';
+					}
+					else if (inputLineSplit[i] == "GoldHealth") {
+						quiered_message += "Gold Health:\t" + to_string(quiered_crop.getGold_Health()) + '\n';
+					}
+					else if (inputLineSplit[i] == "IridiumHealth") {
+						quiered_message += "Iridium Health:\t" + to_string(quiered_crop.getIridium_Health()) + '\n';
+					}
+					else if (inputLineSplit[i] == "UsedIn") {
+						quiered_message += "Used In:\t" + quiered_crop.getUsed_In() + '\n';
+					}
+					else if (inputLineSplit[i] == "LovedGift") {
+						quiered_message += "Loved Gift:\t" + quiered_crop.getLoved_Gift() + '\n';
+					}
+				}
+			}	//if (inputLineSplit[0] == "get")
+
+			cout << quiered_message;
+		}
+		else if (input_line == "/exit") {
 			keep_going = false;
 		}
 		else if (input_line == "/help") {
 			// Fill out with all possible commands
 		}
+		else	cout << "Command not recongized. Please enter a command inside databank. Enter '/help' to view commands." << std::endl;
 	}	//while (keeping_going == true)
 
 
@@ -120,7 +206,7 @@ void printTitle() {
 	std::cout << "\n\n";
 }
 
-vector<string> SplitDelimitedString(string str) {
+vector<string> splitDelimitedString(string str) {
 	vector<string> stringList;
 	string delimiters = "-|";
 	// finds the range of characters in the string that's before - or |
@@ -132,7 +218,6 @@ vector<string> SplitDelimitedString(string str) {
 		end = str.find_first_of(delimiters, start);
 	}
 	stringList.push_back(str.substr(start));
-	cout << stringList.size();
 
 	return stringList;
 }
