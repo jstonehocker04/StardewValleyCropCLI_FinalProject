@@ -79,6 +79,7 @@ int main() {
 
 	printTitle();
 
+	cout << "Please enter a command in. Use '/help' to display command information\n";
 
 	//Initialization and Defining for 
 	bool keep_going = true;
@@ -90,17 +91,18 @@ int main() {
 		//Split input_line into sections
 		// Checks to see if the necessary characters - and | are in the command
 			// Command Template: get-[CROPNAME]|[OBJECTElEMENT] ex: get-Yam|PierrePrice|Season|...
-		if (input_line.find('-') != string::npos && input_line.find('|') != string::npos) {
+			// find-Season=Fall,Summer|PierrePrice=
+		if (input_line.find('-') != string::npos && input_line.find('=') != string::npos || input_line.find('|') != string::npos) {
 			// Seperate input_line into a vector
 			std::vector<string> inputLineSplit = splitDelimitedString(input_line);
 
 			// Initiate equal to BlueJazz so correct Crop constructor is used on quiered_crop
 			Crop QuieredCrop = BlueJazz;
 			string quiered_message;
+			bool pass = false;
 
 			// Checks first element of inputLineSplit is a get or set
 			if (inputLineSplit[0] == "get") {
-				bool pass = false;
 				// Search cropList's objects to see what crop_name matches the inputLineSplit[1]
 				for (const auto& crop : cropList) {
 					// Store object with matching crop name into quiered_crop
@@ -118,6 +120,11 @@ int main() {
 					cout << "Crop name not recognized. Please enter a correct crop name. Enter '/help-Crops' to view all crops.";
 
 			}
+			else if (inputLineSplit[0] == "find") {
+				for (const auto& crop : cropList) {
+					
+				}
+			}
 			else
 				cout << "Command not recongized. Please enter a command inside databank. Enter '/help-Commands' to view commands." << std::endl;
 		}
@@ -126,7 +133,10 @@ int main() {
 			return 0;
 		}
 		else if (input_line == "/help") {
-			
+			cout << "To enter a command use the command format of:\nget-[CropName]|[Parameter]\nfind-[Parameter]=[Value]"
+				<< "To look at all available crops enter '/help-Crops'\n"
+				<< "To look at all available parameters enter '/help-Commands\n"
+				<< "To end the program enter '/exit/\n";
 		}
 		else if (input_line == "/help-Crops") {
 			cout << "All Crops\n";
@@ -135,7 +145,9 @@ int main() {
 			}
 		}
 		else if (input_line == "/help-Commands") {
-
+			cout << "All Commands\n";
+			cout << "Season\nGDP\nPierrePrice\nJojaPrice\nGrowthTime\nRegrowthTime\nNormalSell\nSilverSell\nGoldSell\nIridiumSell\n"
+				<< "Edible\nNormalEnergy\nSilverEnergy\nGoldEnergy\nIridiumEnergy\nNormalHealth\nSilverEnergy\nGoldEnergy\nIridiumEnergy\nUsedIn\nLovedGift";
 		}
 		else	
 			cout << "Command not recongized. Please enter a command inside databank. Enter '/help' to view commands." << std::endl;
