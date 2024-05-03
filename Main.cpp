@@ -129,7 +129,10 @@ int main() {
 			
 		}
 		else if (input_line == "/help-Crops") {
-
+			cout << "All Crops\n";
+			for (const auto& crop : cropList) {
+				cout << crop.getCrop_Name() << "\n";
+			}
 		}
 		else if (input_line == "/help-Commands") {
 
