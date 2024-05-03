@@ -11,6 +11,7 @@
 #include <vector>
 #include <fstream>
 #include <sstream>
+#include <iomanip>
 #include "Crop.h"
 
 using std::string;
@@ -92,6 +93,7 @@ int main() {
 		if (input_line.find('-') != string::npos && input_line.find('|') != string::npos) {
 			// Seperate input_line into a vector
 			std::vector<string> inputLineSplit = splitDelimitedString(input_line);
+
 			// Initiate equal to BlueJazz so correct Crop constructor is used on quiered_crop
 			Crop QuieredCrop = BlueJazz;
 			string quiered_message;
@@ -124,12 +126,14 @@ int main() {
 			return 0;
 		}
 		else if (input_line == "/help") {
-			// Fill out with all possible commands
+			
 		}
 		else if (input_line == "/help-Crops") {
 
 		}
-		else if (input_line == "/help-Commands");
+		else if (input_line == "/help-Commands") {
+
+		}
 		else	
 			cout << "Command not recongized. Please enter a command inside databank. Enter '/help' to view commands." << std::endl;
 	}	//while (keeping_going == true)
@@ -165,85 +169,62 @@ vector<string> splitDelimitedString(string str) {
 }
 
 string quieredMessageMaker(vector<string> stringList, Crop crop) {
-	string msg;
-	msg += "Crop:\t" + crop.getCrop_Name() + '\n';
+	// Removes first two elements of vector so they aren't considered in for loop
+	stringList.erase(stringList.begin(), stringList.begin() + 1);
 
+	string msg;
+	msg += "Crop:\t\t\t" + crop.getCrop_Name() + '\n';
+	//cout << stringList[1];
 	// Search inputLineSplit for all quiered object elements
-	for (int i = 0; i < stringList.size(); i++) {
-		if (stringList[i] == "Season") {
+	for (int i = 0; i < stringList.size(); ++i) {
+		if (stringList[i] == "Season")
 			msg += "Season:\t" + crop.getSeason() + '\n';
-		}
-		else if (stringList[i] == "GDP") {
+		else if (stringList[i] == "GDP")
 			msg += "Gold Per Day:\t" + to_string(crop.getGDP()) + '\n';
-		}
-		else if (stringList[i] == "PierrePrice") {
-			msg += "Pierre's Price:\t" + to_string(crop.getPierre_Price()) + '\n';
-		}
-		else if (stringList[i] == "JojaPrice") {
+		else if (stringList[i] == "PierrePrice")
+			msg += "Pierre's Price:\t\t" + to_string(crop.getPierre_Price()) + '\n';
+		else if (stringList[i] == "JojaPrice")
 			msg += "Joja's Price:\t" + to_string(crop.getJoja_Price()) + '\n';
-		}
-		else if (stringList[i] == "GrowthTime") {
+		else if (stringList[i] == "GrowthTime")
 			msg += "Growth Time:\t" + to_string(crop.getGrowth_Time()) + '\n';
-		}
-		else if (stringList[i] == "Regrowth") {
+		else if (stringList[i] == "Regrowth")
 			msg += "Regrowth:\t" + to_string(crop.getRegrowth()) + '\n';
-		}
-		else if (stringList[i] == "RegrowthTime") {
+		else if (stringList[i] == "RegrowthTime")
 			msg += "Regrowth Time:\t" + to_string(crop.getRegrwoth_Time()) + '\n';
-		}
-		else if (stringList[i] == "NormalSell") {
+		else if (stringList[i] == "NormalSell")
 			msg += "Normal Sell Price:\t" + to_string(crop.getNormal_Sell()) + '\n';
-		}
-		else if (stringList[i] == "SilverSell") {
+		else if (stringList[i] == "SilverSell")
 			msg += "Silver Sell Price:\t" + to_string(crop.getSilver_Sell()) + '\n';
-		}
-		else if (stringList[i] == "GoldSell") {
+		else if (stringList[i] == "GoldSell")
 			msg += "Gold Sell Price:\t" + to_string(crop.getGold_Sell()) + '\n';
-		}
-		else if (stringList[i] == "IridiumSell") {
+		else if (stringList[i] == "IridiumSell")
 			msg += "Iridium Sell Price:\t" + to_string(crop.getIridium_Sell()) + '\n';
-		}
-		else if (stringList[i] == "Edible") {
+		else if (stringList[i] == "Edible")
 			msg += "Edible:\t" + to_string(crop.getEdible()) + '\n';
-		}
-		else if (stringList[i] == "NormalEnergy") {
+		else if (stringList[i] == "NormalEnergy")
 			msg += "Normal Energy:\t" + to_string(crop.getNormal_Energy()) + '\n';
-		}
-		else if (stringList[i] == "SilverEnergy") {
+		else if (stringList[i] == "SilverEnergy")
 			msg += "Silver Energy:\t" + to_string(crop.getSilver_Energy()) + '\n';
-		}
-		else if (stringList[i] == "GoldEnergy") {
+		else if (stringList[i] == "GoldEnergy")
 			msg += "Gold Energy:\t" + to_string(crop.getGold_Energy()) + '\n';
-		}
-		else if (stringList[i] == "IridiumEnergy") {
+		else if (stringList[i] == "IridiumEnergy")
 			msg += "Iridium Energy:\t" + to_string(crop.getIridium_Energy()) + '\n';
-		}
-		else if (stringList[i] == "NormalHealth") {
+		else if (stringList[i] == "NormalHealth")
 			msg += "Normal Health:\t" + to_string(crop.getNormal_Health()) + '\n';
-		}
-		else if (stringList[i] == "SilverHealth") {
+		else if (stringList[i] == "SilverHealth")
 			msg += "Silver Health:\t" + to_string(crop.getSilver_Energy()) + '\n';
-		}
-		else if (stringList[i] == "GoldHealth") {
+		else if (stringList[i] == "GoldHealth")
 			msg += "Gold Health:\t" + to_string(crop.getGold_Health()) + '\n';
-		}
-		else if (stringList[i] == "IridiumHealth") {
+		else if (stringList[i] == "IridiumHealth")
 			msg += "Iridium Health:\t" + to_string(crop.getIridium_Health()) + '\n';
-		}
-		else if (stringList[i] == "UsedIn") {
+		else if (stringList[i] == "UsedIn")
 			msg += "Used In:\t" + crop.getUsed_In() + '\n';
-		}
-		else if (stringList[i] == "LovedGift") {
+		else if (stringList[i] == "LovedGift")
 			msg += "Loved Gift:\t" + crop.getLoved_Gift() + '\n';
-		}
-		else if (stringList[i] == "GeneralInfo") {
+		else if (stringList[i] == "GeneralInfo")
 			msg += crop.getGeneralInfo();
-		}
-		else if (stringList[i] == "AllInfo") {
+		else if (stringList[i] == "AllInfo")
 			msg += crop.getAllInfo();
-		}
-		else
-			msg += crop.getGeneralInfo();
 	}
 
 	return msg;

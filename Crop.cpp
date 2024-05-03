@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include "Crop.h"
 
 using std::to_string;
@@ -59,8 +60,8 @@ string Crop::getGeneralInfo() const {
 	return msg;
 }
 string Crop::getAllInfo() const {
-	string msg = "Season:\t" + getSeason() + '\n'
-		+ "Gold Per Day:\t" + to_string(getGDP()) + '\n'
+	string msg = "Season:\t\t\t" + getSeason() + '\n'
+		+ "Gold Per Day:\t\t" + to_string(getGDP()) + '\n'
 		+ "Pierre's Price:\t" + to_string(getPierre_Price()) + '\n'
 		+ "Joja's Price:\t" + to_string(getJoja_Price()) + '\n'
 		+ "Growth Time:\t" + to_string(getGrowth_Time()) + '\n'
