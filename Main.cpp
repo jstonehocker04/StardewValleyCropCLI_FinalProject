@@ -24,7 +24,7 @@ using std::cin;
 //	Declared Funcitons
 void printTitle();
 vector<string> splitDelimitedString(string);
-string quieredMessageMaker(vector<string>, Crop);
+string getterMessageMaker(vector<string>, Crop);
 
 
 
@@ -95,13 +95,12 @@ int main() {
 		if (input_line.find('-') != string::npos && input_line.find('=') != string::npos || input_line.find('|') != string::npos) {
 			// Seperate input_line into a vector
 			std::vector<string> inputLineSplit = splitDelimitedString(input_line);
-
 			// Initiate equal to BlueJazz so correct Crop constructor is used on quiered_crop
 			Crop QuieredCrop = BlueJazz;
 			string quiered_message;
 			bool pass = false;
 
-			// Checks first element of inputLineSplit is a get or set
+			// Checks first element of inputLineSplit is a get or find
 			if (inputLineSplit[0] == "get") {
 				// Search cropList's objects to see what crop_name matches the inputLineSplit[1]
 				for (const auto& crop : cropList) {
@@ -113,17 +112,14 @@ int main() {
 				}
 				// Checks to see if a correct crop name was put in
 				if (pass == true) {
-					quiered_message = quieredMessageMaker(inputLineSplit, QuieredCrop);
+					quiered_message = getterMessageMaker(inputLineSplit, QuieredCrop);
 					cout << quiered_message;
 				}
 				else
 					cout << "Crop name not recognized. Please enter a correct crop name. Enter '/help-Crops' to view all crops.";
-
 			}
 			else if (inputLineSplit[0] == "find") {
-				for (const auto& crop : cropList) {
-					
-				}
+				quiered_message;
 			}
 			else
 				cout << "Command not recongized. Please enter a command inside databank. Enter '/help-Commands' to view commands." << std::endl;
@@ -183,12 +179,16 @@ vector<string> splitDelimitedString(string str) {
 	return stringList;
 }
 
-string quieredMessageMaker(vector<string> stringList, Crop crop) {
+string getterMessageMaker(vector<string> stringList, Crop crop) {
 	// Removes first two elements of vector so they aren't considered in for loop
-	stringList.erase(stringList.begin(), stringList.begin() + 1);
+	stringList.erase(stringList.begin());
+	stringList.erase(stringList.begin());
+	for (const auto& item : stringList) {
+		cout << item;
+	}
 
 	string msg;
-	msg += "Crop:\t\t\t" + crop.getCrop_Name() + '\n';
+	msg += "Crop:\t" + crop.getCrop_Name() + '\n';
 	//cout << stringList[1];
 	// Search inputLineSplit for all quiered object elements
 	for (int i = 0; i < stringList.size(); ++i) {
@@ -244,3 +244,4 @@ string quieredMessageMaker(vector<string> stringList, Crop crop) {
 
 	return msg;
 }	//string quieredMessageMaker()
+
