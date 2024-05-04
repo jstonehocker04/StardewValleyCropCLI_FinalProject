@@ -23,6 +23,7 @@ using std::cin;
 
 //	Declared Funcitons
 void printTitle();
+vector<Crop> readCVS(const string&);
 vector<string> splitDelimitedString(string);
 string quieredMessageMaker(vector<string>, Crop);
 
@@ -30,7 +31,7 @@ string quieredMessageMaker(vector<string>, Crop);
 
 int main() {
 	//Initialize Crop Objects then store in cropList vector
-	Crop BlueJazz = Crop::Crop("Blue Jazz", "Spring", 2.86, 30, 37, 7, 0, 50, 62, 75, 100, 45, 63, 81, 117, 20, 28, 36, 52, "Lucky Lunch", "");
+	/*Crop BlueJazz = Crop::Crop("Blue Jazz", "Spring", 2.86, 30, 37, 7, 0, 50, 62, 75, 100, 45, 63, 81, 117, 20, 28, 36, 52, "Lucky Lunch", "");
 	Crop Carrot = Crop::Crop("Carrot", "Spring", 11.6, 0, 0, 3, 0, 35, 43, 52, 70, 75, 105, 135, 195, 33, 47, 60, 87, "", "");
 	Crop Califlower = Crop::Crop("Cauliflower", "Spring", 7.92, 80, 100, 12, 0, 175, 218, 262, 350, 75, 105, 135, 195, 33, 47, 60, 87, "Cheese Cauliflower|Spring Crops Bundle|\"Jodi's Request\" Quest", "Maru");
 	Crop CoffeeBean = Crop::Crop("Coffee Bean", "Spring,Summer", 25.56, 0, 0, 10, 2, 15, 18, 22, 30, 0, 0, 0, 0, 0, 0, 0, 0, "Coffee", "");
@@ -73,73 +74,76 @@ int main() {
 
 	std::vector<Crop> cropList = { BlueJazz, Carrot, Califlower, CoffeeBean, Garlic, GreenBean, Kale, Parsnips, Rhubarb, Strawberry, Tulip, UnmilledRice,
 		Blueberry, Corn, Hops, HotPepper, Melon, Poppy, Radish, RedCabbage, Starfruit, SummerSpangle, SummerSquash, Sunflower, Tomato, Wheat,
-		Amaranth, Artichoke, Beet, BokChoy, Broccolie, Cranberries, Eggplant, FairyRose, Grape, Pumpkin, Yam, Powdermelon, AncientFruit, SweetGem };
+		Amaranth, Artichoke, Beet, BokChoy, Broccolie, Cranberries, Eggplant, FairyRose, Grape, Pumpkin, Yam, Powdermelon, AncientFruit, SweetGem };*/
+
+	vector<Crop> cropList = readCVS("CropInfo.csv");
+
 
 
 
 	printTitle();
 
 
-	//Initialization and Defining for 
-	bool keep_going = true;
-	string input_line;
+	////Initialization and Defining for 
+	//bool keep_going = true;
+	//string input_line;
 
-	while (keep_going == true) {
-		cin >> input_line;
+	//while (keep_going == true) {
+	//	cin >> input_line;
 
-		//Split input_line into sections
-		// Checks to see if the necessary characters - and | are in the command
-			// Command Template: get-[CROPNAME]|[OBJECTElEMENT] ex: get-Yam|PierrePrice|Season|...
-		if (input_line.find('-') != string::npos && input_line.find('|') != string::npos) {
-			// Seperate input_line into a vector
-			std::vector<string> inputLineSplit = splitDelimitedString(input_line);
+	//	//Split input_line into sections
+	//	// Checks to see if the necessary characters - and | are in the command
+	//		// Command Template: get-[CROPNAME]|[OBJECTElEMENT] ex: get-Yam|PierrePrice|Season|...
+	//	if (input_line.find('-') != string::npos && input_line.find('|') != string::npos) {
+	//		// Seperate input_line into a vector
+	//		std::vector<string> inputLineSplit = splitDelimitedString(input_line);
 
-			// Initiate equal to BlueJazz so correct Crop constructor is used on quiered_crop
-			Crop QuieredCrop = BlueJazz;
-			string quiered_message;
+	//		// Initiate equal to BlueJazz so correct Crop constructor is used on quiered_crop
+	//		//Crop QuieredCrop = ;
+	//		string quiered_message;
 
-			// Checks first element of inputLineSplit is a get or set
-			if (inputLineSplit[0] == "get") {
-				bool pass = false;
-				// Search cropList's objects to see what crop_name matches the inputLineSplit[1]
-				for (const auto& crop : cropList) {
-					// Store object with matching crop name into quiered_crop
-					if (inputLineSplit[1] == crop.getCrop_Name()) {
-						QuieredCrop = crop;
-						pass = true;
-					}
-				}
-				// Checks to see if a correct crop name was put in
-				if (pass == true) {
-					quiered_message = quieredMessageMaker(inputLineSplit, QuieredCrop);
-					cout << quiered_message;
-				}
-				else
-					cout << "Crop name not recognized. Please enter a correct crop name. Enter '/help-Crops' to view all crops.";
+	//		// Checks first element of inputLineSplit is a get or set
+	//		if (inputLineSplit[0] == "get") {
+	//			bool pass = false;
+	//			// Search cropList's objects to see what crop_name matches the inputLineSplit[1]
+	//			for (const auto& crop : cropList) {
+	//				// Store object with matching crop name into quiered_crop
+	//				if (inputLineSplit[1] == crop.getCrop_Name()) {
+	//					QuieredCrop = crop;
+	//					pass = true;
+	//				}
+	//			}
+	//			// Checks to see if a correct crop name was put in
+	//			if (pass == true) {
+	//				quiered_message = quieredMessageMaker(inputLineSplit, QuieredCrop);
+	//				cout << quiered_message;
+	//			}
+	//			else
+	//				cout << "Crop name not recognized. Please enter a correct crop name. Enter '/help-Crops' to view all crops.";
 
-			}
-			else
-				cout << "Command not recongized. Please enter a command inside databank. Enter '/help-Commands' to view commands." << std::endl;
-		}
-		else if (input_line == "/exit") {
-			cout << "Have a wonderful day and look out for any Concerned Apes!";
-			return 0;
-		}
-		else if (input_line == "/help") {
-			
-		}
-		else if (input_line == "/help-Crops") {
-			cout << "All Crops\n";
-			for (const auto& crop : cropList) {
-				cout << crop.getCrop_Name() << "\n";
-			}
-		}
-		else if (input_line == "/help-Commands") {
+	//		}
+	//		else
+	//			cout << "Command not recongized. Please enter a command inside databank. Enter '/help-Commands' to view commands." << std::endl;
+	//	}
+	//	else if (input_line == "/exit") {
+	//		cout << "Have a wonderful day and look out for any Concerned Apes!";
+	//		return 0;
+	//	}
+	//	else if (input_line == "/help") {
+	//		
+	//	}
+	//	else if (input_line == "/help-Crops") {
+	//		cout << "All Crops\n";
+	//		for (const auto& crop : cropList) {
+	//			cout << crop.getCrop_Name() << "\n";
+	//		}
+	//	}
+	//	else if (input_line == "/help-Commands") {
 
-		}
-		else	
-			cout << "Command not recongized. Please enter a command inside databank. Enter '/help' to view commands." << std::endl;
-	}	//while (keeping_going == true)
+	//	}
+	//	else	
+	//		cout << "Command not recongized. Please enter a command inside databank. Enter '/help' to view commands." << std::endl;
+	//}	//while (keeping_going == true)
 }	// main()
 
 
@@ -153,6 +157,26 @@ void printTitle() {
 			std::cout << line << '\n';
 	}
 	std::cout << "\n\n";
+}
+
+vector<Crop> readCVS(const string& filename) {
+	vector<Crop> cropList;
+	std::ifstream file(filename);
+	string line;
+
+	while (std::getline(file, line)) {
+		std::istringstream iss(line);
+		string crop_name, season, used_in, loved_gift;
+		double gdp;
+		int pierre_price, joja_price, growth_time, regrowth_time, normal_sell, silver_sell, gold_sell, iridium_sell, normal_energy, silver_energy, gold_energy, iridium_energy, normal_health, silver_health, gold_health, iridium_health;
+		// Read data from each line
+		if (std::getline(iss, crop_name, ',') && iss >> season && iss >> gdp && iss >> pierre_price && iss >> joja_price && iss >> growth_time && iss >> regrowth_time && iss >> normal_sell && iss >> silver_sell && iss >> gold_sell && iss >> iridium_sell && iss >> normal_energy && iss >> silver_energy && iss >> gold_energy && iss >> iridium_energy && iss >> normal_health && iss >> silver_health && iss >> gold_health && iss >> iridium_health && iss >> used_in && iss >> loved_gift) {
+			cropList.push_back({ crop_name,season,gdp,pierre_price,joja_price,growth_time,regrowth_time,normal_sell,silver_sell,gold_sell,iridium_sell,normal_energy,silver_energy,gold_energy,iridium_energy,normal_health,silver_health,gold_health,iridium_health,used_in,loved_gift });
+		}
+		cout << cropList.size();
+	}
+	
+	return cropList;
 }
 
 vector<string> splitDelimitedString(string str) {
